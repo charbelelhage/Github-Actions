@@ -26,7 +26,7 @@ jobs:
   run-github-actions: 
     runs-on: ubuntu-latest
     steps:
-      - name: playload
+      - name: playload1
         run: echo ${{ github.event.client_payload.env }}
       - name: List Files 
         run: |
