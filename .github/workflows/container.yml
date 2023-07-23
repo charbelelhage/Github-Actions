@@ -10,6 +10,11 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
+        - name: Cache node_modules
+          uses: actions/cache12v1
+          with: 
+            path: ~/.cache/pip
+
     
         - name: Build and push Docker image
           uses: docker/build-push-action@v2
