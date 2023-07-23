@@ -1,0 +1,22 @@
+name: Container
+on:
+    push:
+      branches:
+        - simple  # Adjust this branch name if needed
+
+jobs: 
+  docker-steps:
+    runs-on: ubuntu-18.04
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+    
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v2
+          with:
+            context: .  # Path to the directory containing your Dockerfile (the current directory in this case)
+            push: true  # Set to 'false' if you only want to build the image and not push it
+            tags: your-docker-repo/your-image-name:latest  # Replace with your Docker repository and image name
+            build-args: |
+              ARG1=value1  # Replace with any build arguments required in your Dockerfile (optional)
+              ARG2=value2
