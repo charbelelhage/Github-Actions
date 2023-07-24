@@ -12,7 +12,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 running_processes = {}
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="fastapi/static"), name="static")
 
 
 @app.get("/", response_class=HTMLResponse)
