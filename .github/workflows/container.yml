@@ -16,7 +16,7 @@ jobs:
             python-version: 3.8  # Replace '3.x' with the desired Python version (e.g., '3.8', '3.9')
   
         - name: Install dependencies
-          run: pip install pytest  # Replace 'requirements.txt' with your dependencies file
+          run: pip install -r requirements.txt  # Replace 'requirements.txt' with your dependencies file
   
         - name: Run pytest
           run: pytest  # This command will run pytest tests in the current directory and subdirectories
