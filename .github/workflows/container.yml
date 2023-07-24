@@ -18,9 +18,8 @@ jobs:
   
         - name: Install dependencies
           run: |
-            cd fastapi/
-            ls
-            pip install -r requirements.txt  
+            pip install -r requirements.txt 
+            cd fastapi/ 
 
         - name: Run pytest
           run: pytest  
