@@ -52,4 +52,4 @@ async def test_upload_file_with_invalid_bag(tmp_path):  # Using tmp_path fixture
     data_content = response.body.decode("utf-8")
     data=json.loads(data_content)  # Get the JSON content as a dictionary
     assert data["status"] == "fail"
-    assert data["message"] == "Only bag format is accepted!"
+    assert data["message"] == "Only bag format is accepted."
