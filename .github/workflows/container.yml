@@ -10,9 +10,21 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.8  # Replace '3.x' with the desired Python version (e.g., '3.8', '3.9')
+  
+        - name: Install dependencies
+          run: pip install pytest  # Replace 'requirements.txt' with your dependencies file
+  
+        - name: Run pytest
+          run: pytest  # This command will run pytest tests in the current directory and subdirectories
     
         - name: Build and push Docker image
           uses: docker/build-push-action@v2
           with:
             context: .  # Path to the directory containing your Dockerfile (the current directory in this case)
-            push: true  # Set to 'false' if you only want to build the image and not push it
+            push: false  # Set to 'false' if you only want to build the image and not push it
+
+        
