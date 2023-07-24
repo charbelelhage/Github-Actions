@@ -10,18 +10,9 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-
-        - name: Cache node_modules
-          uses: actions/cache@v1
-          with: 
-            path: ~/.cache/pip
-            key: ${{ runner.os }}-pip-1
-            restore-keys: |
-              ${{ runner.os }}-pip-
-
     
         - name: Build and push Docker image
           uses: docker/build-push-action@v2
           with:
             context: .  # Path to the directory containing your Dockerfile (the current directory in this case)
-            push: false  # Set to 'false' if you only want to build the image and not push it
+            push: true  # Set to 'false' if you only want to build the image and not push it
